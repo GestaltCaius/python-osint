@@ -47,10 +47,10 @@ def bing_search(query: str) -> List[SearchResult]:
     output: List[SearchResult] = []
     results = soup.find_all('li', {'class': 'b_algo'})
     for result in results:
-        title = result.find('h2').text
-        url = result.find('div', {'class': 'b_attribution'}).text
-        caption = result.find('p').text
+        title = result.find('h2').text.lower()
+        url = result.find('div', {'class': 'b_attribution'}).text.lower()
+        caption = result.find('p').text.lower()
         output.append(SearchResult(title=title, url=url, caption=caption))
-
+    session.close()
     return output
 
