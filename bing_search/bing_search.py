@@ -1,3 +1,5 @@
+import re
+
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
 from typing import List
@@ -21,8 +23,14 @@ class SearchResult:
     url: str
     caption: str
 
+    def domain(self) -> str:
+        pattern = r'.*//(.*?)(/.*|$)'
+        match = re.search(pattern, self.url)
+        return match.group(1) if match else ''
+
+
     def __str__(self):
-        return '{} - {}\n{}'.format(self.title, self.url, self.caption)
+        return '[{}] {} :--> {} (@ {})\n'.format(self.domain(), self.title, self.caption, self.url)
 
 
 def bing_search(query: str) -> List[SearchResult]:
@@ -45,3 +53,4 @@ def bing_search(query: str) -> List[SearchResult]:
         output.append(SearchResult(title=title, url=url, caption=caption))
 
     return output
+

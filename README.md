@@ -21,6 +21,18 @@
 
 # Bing Search with Python
 
+Aucun des moteurs de recherche n'offre d'API pour effectuer des recherches.
+Google a le Google Custom Search, mais il est limité en nombre de recherches par jour, et n'est pas aussi complet que le Google Search classique.
+
+Bing propose une API Azure, mais elle est payante également...
+
+J'ai donc décidé de créer mon propre scraper de Bing Search.
+
+J'ai choisi Bing, car d'après mes recherches c'est le moteur de recherche le moins regardant concernant le scraping.
+Pour les autres moteurs, il faut limiter son scraping pour ne pas se faire attraper (attendre quelques ms entre chaque requetes, etc.)
+
+Bing supporte les Google Dorks, donc cela ne devrait pas trop impacter nos résultats.
+
 # Strategie OSINT
 
 * Google Dorks
