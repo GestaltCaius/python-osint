@@ -7,3 +7,9 @@ websites = [
     'linkedin.com',
     'badoo.com',
 ]
+
+social_websites = [
+    'twitter.com',
+    'facebook.com',
+    'instagram.com',
+]

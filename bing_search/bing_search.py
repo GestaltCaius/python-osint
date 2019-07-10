@@ -19,18 +19,19 @@ headers_get = {
 
 @dataclass
 class SearchResult:
-    title: str
-    url: str
-    caption: str
+    title: str = 'Untitled'
+    url: str = 'No URL'
+    caption: str = 'No caption'
+    category: str = 'other'
 
     def domain(self) -> str:
-        pattern = r'.*//(.*?)(/.*|$)'
+        pattern = r'(http.?://)?(.*?)(/.*|$)'
         match = re.search(pattern, self.url)
-        return match.group(1) if match else ''
+        return match.group(2) if match else ''
 
 
     def __str__(self):
-        return '[{}] {} :--> {} (@ {})\n'.format(self.domain(), self.title, self.caption, self.url)
+        return '[{}][{}] {} || {} (@ {})\n'.format(self.category.upper(), self.domain(), self.title, self.caption, self.url)
 
 
 def bing_search(query: str) -> List[SearchResult]:
