@@ -1,11 +1,11 @@
-import os
-import re
-from pathlib import Path
-from typing import List
-import logging
-
 from bing_search.bing_search import SearchResult, bing_search
 from osint import constants
+from pathlib import Path
+from typing import List
+
+import logging
+import os
+import re
 
 filepath = os.path.join(Path.cwd(), 'osint_result.log')
 logging.basicConfig(
@@ -15,12 +15,6 @@ logging.basicConfig(
     filemode='w' #clear everytime
 )
 logger = logging.getLogger(__name__)
-# handler = logging.FileHandler(filepath)
-# formatter = logging.Formatter('%(message)s')
-# handler.setFormatter(formatter)
-# logger.addHandler(handler)
-# logger.setLevel(logging.INFO)
-
 
 
 class Osint:

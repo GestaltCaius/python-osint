@@ -1,8 +1,7 @@
-import re
-
 from bs4 import BeautifulSoup
 from dataclasses import dataclass
 from typing import List
+import re
 import requests
 
 # Adding "real user" header in requests should prevent Bing from spotting us, allegedly.
